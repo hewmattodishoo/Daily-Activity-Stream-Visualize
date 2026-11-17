@@ -1,0 +1,42 @@
+{
+  "_doc": "Copy this folder to prospects/<slug>/ and edit. Full field reference: .github/skills/das-demo/references/config-reference.md",
+  "prospect": {
+    "name": "Acme Living",
+    "slug": "acme-living",
+    "industry": "Home & living e-commerce (multi-country)",
+    "contact_email": "ecommerce@acmeliving.example",
+    "bi_tools": "Looker · Power BI · Looker Studio"
+  },
+  "brand": { "primary": "#23395d", "accent": "#e07a5f", "logo_html": "Acme<b>Living</b>" },
+  "currency": { "code": "EUR", "symbol": "€", "number_locale": "en-GB" },
+  "period": { "end": "2026-11-15", "weeks": 8, "sessions_per_day": 1100, "seed": 42, "last_year_factor": 0.86, "growth_in_period": 0.25 },
+  "feed": { "path": null, "synthetic": { "products": 300 } },
+  "bigquery": { "dataset": "dy", "export_bucket": "gs://acme-living-exports", "s3_region_suffix": "-eu" },
+  "sites": [
+    { "domain": "www.acmeliving.nl", "country": "NL", "locale": "nl-NL", "share": 0.35 },
+    { "domain": "www.acmeliving.de", "country": "DE", "locale": "de-DE", "share": 0.40 },
+    { "domain": "www.acmeliving.be", "country": "BE", "locale": "nl-BE", "path": "/nl", "share": 0.15 },
+    { "domain": "www.acmeliving.be", "country": "BE", "locale": "fr-BE", "path": "/fr", "share": 0.10 }
+  ],
+  "slots": [
+    { "name": "HP | Recommended For You", "page": "HOMEPAGE", "variations": [
+      { "name": "Affinity based", "strategy": "Personalized - Affinity", "type": "affinity", "weight": 0.5, "ctr": 0.034 },
+      { "name": "Most popular (control)", "strategy": "Most Popular", "type": "popular", "weight": 0.5, "ctr": 0.027, "control": true } ] },
+    { "name": "HP | Recently Viewed", "page": "HOMEPAGE", "audience": "Returning users", "variations": [
+      { "name": "Recently Viewed", "strategy": "Recently Viewed", "type": "recently_viewed", "ctr": 0.052 } ] },
+    { "name": "PLP | Top Sellers in Category", "page": "CATEGORY", "variations": [
+      { "name": "Top sellers", "strategy": "Popularity in Category", "type": "popular_in_category", "ctr": 0.024 } ] },
+    { "name": "PDP | Similar Products", "page": "PRODUCT", "variations": [
+      { "name": "Similar - no rules (control)", "strategy": "Similar Items", "type": "similar", "weight": 0.5, "ctr": 0.058, "control": true },
+      { "name": "Similar + In-stock & margin boost", "strategy": "Similar Items + Margin Rule", "type": "similar", "weight": 0.5, "ctr": 0.064,
+        "params": { "rule": "margin_instock" } } ] },
+    { "name": "PDP | Complete The Look", "page": "PRODUCT", "variations": [
+      { "name": "Complete the look", "strategy": "Complete The Look", "type": "complementary", "ctr": 0.041,
+        "params": { "categories": ["Furniture", "Home & Garden"] } } ] },
+    { "name": "PDP | Budget Alternative", "page": "PRODUCT", "variations": [
+      { "name": "Budget alternative", "strategy": "Budget Alternative", "type": "budget_alternative", "ctr": 0.031,
+        "params": { "min_price": 40 } } ] },
+    { "name": "Cart | Pair It With", "page": "CART", "variations": [
+      { "name": "Pair it with", "strategy": "Bought Together", "type": "bought_together", "ctr": 0.036 } ] }
+  ]
+}

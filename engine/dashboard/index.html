@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DAS demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<script src="chart.umd.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="logo" id="logo"></span>
+    <div>
+      <h1 id="title"></h1>
+      <small>Dynamic Yield <b>Daily Activity Stream</b> (raw + attribution) · synthetic data · <span id="meta"></span></small>
+    </div>
+  </div>
+  <div class="legend-chip"><span class="src-badge src-raw">DAS raw</span> <span class="src-badge src-attr">DAS attribution</span> <span class="src-badge src-feed">Product feed (join)</span></div>
+</header>
+
+<main class="layout">
+  <section class="card lin-card">
+    <div class="card-h"><h3>Which DAS data does each requirement need?</h3>
+      <div class="ctrl" id="req-summary"></div></div>
+    <p class="note" style="margin-top:0">Hover a requirement to trace its columns. Click it (or use ↑ ↓) to open the widget that answers it.</p>
+    <div class="lin-cols" id="lineage"></div>
+  </section>
+  <aside class="card panel" id="panel"></aside>
+</main>
+<footer id="footer"></footer>
+
+<script src="data.js"></script>
+<script src="prospect.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
